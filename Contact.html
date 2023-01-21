@@ -30,14 +30,16 @@
 <h3>If there is a service that has interested you feel free to contact us in the following ways:</h3>
 <div class="card">
 <h2>Contact form</h2>
-<form>
-<input type="text" name="Name" placeholder="Full Name" required>
-<input type="email" name="Email" placeholder="Email" required>
-<textarea name="Message" placeholder="Message" required></textarea>
+<form onsubmit="sendEmail(); reset(); return false;">
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<textarea id="message" rows="4" placeholder="How can we help you?" required></textarea>
 <button type="submit">Send</button>
 </form>
+<p>
 You can also send us an e-mail directly through the following link
-<a href="mailto:your@email.com"><br>Company Mail</a>
+</p>
+<a href="atalakidi@gmail.com"><br>Company Mail</a>
 </div> 
 
 
@@ -54,13 +56,27 @@ You can also send us an e-mail directly through the following link
    
     
 
+<script src=" https://smtpjs.com/v3/smtp.js"></script>
+<script>
+  function sendEmail(){
 
+    Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "atalakidi@gmail.com",
+    Password : "4EA3624FAC99A4ED1845131B067DEE7DB620",
+    To : 'atalakidi@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "Contact Form Enquiry",
+    Body : "Name: " + document.getElementById("name").value
 
+    + "<br> Email" + document.getElementById("email").value
+    + "<br> Message: " + document.getElementById("message").value 
+}).then(
+  message => alert(message)
+);
 
-
-
-
-
+  }
+</script>
 
 
 </body>

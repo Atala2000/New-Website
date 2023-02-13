@@ -124,10 +124,11 @@ opacity: 1;
   .footer{
     background: #303036;
     color: #d3d3d3;
+  
     
     margin-top: 20px;
     
-    padding: 30px;
+    padding: 10px;
     text-align: center;
     
   }
